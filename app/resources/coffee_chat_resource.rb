@@ -10,6 +10,8 @@ class CoffeeChatResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :consultant
+
   # Indirect associations
 
 end
