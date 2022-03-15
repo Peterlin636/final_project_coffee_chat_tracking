@@ -1,6 +1,8 @@
 class Consultant < ApplicationRecord
   # Direct associations
 
+  belongs_to :company
+
   has_many   :coffee_chats,
              :dependent => :destroy
 
