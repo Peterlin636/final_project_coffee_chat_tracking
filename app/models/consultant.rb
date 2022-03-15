@@ -1,6 +1,9 @@
 class Consultant < ApplicationRecord
   # Direct associations
 
+  has_many   :coffee_chats,
+             :dependent => :destroy
+
   # Indirect associations
 
   # Validations

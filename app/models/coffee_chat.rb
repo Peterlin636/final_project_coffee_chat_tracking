@@ -1,6 +1,8 @@
 class CoffeeChat < ApplicationRecord
   # Direct associations
 
+  belongs_to :consultant
+
   # Indirect associations
 
   # Validations
