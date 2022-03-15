@@ -1,0 +1,42 @@
+<!-- Form consultant start -->
+<%= form_with(model: @consultant, local: true) do |f| %>
+<!-- Form consultant end -->
+
+  <!-- Label and input for company_id start -->
+  <!-- Input for company_id start -->
+  <%= f.hidden_field :company_id, value: @company.id %>
+  <!-- Input for company_id end -->
+  <!-- Label and input for company_id end -->
+
+  <!-- Label and input for title start -->
+  <div class="form-group">
+    <%= f.label :title %>
+
+    <!-- Input for title start -->
+    <%= f.text_field :title, class: "form-control" %>
+    <!-- Input for title end -->
+  </div>
+  <!-- Label and input for title end -->
+
+  <!-- Label and input for office start -->
+  <div class="form-group">
+    <%= f.label :office %>
+
+    <!-- Input for office start -->
+    <%= f.text_field :office, class: "form-control" %>
+    <!-- Input for office end -->
+  </div>
+  <!-- Label and input for office end -->
+
+  <!-- Label and input for phone_number start -->
+  <div class="form-group">
+    <%= f.label :phone_number %>
+
+    <!-- Input for phone_number start -->
+    <%= f.text_field :phone_number, class: "form-control" %>
+    <!-- Input for phone_number end -->
+  </div>
+  <!-- Label and input for phone_number end -->
+
+  <%= f.submit "Create consultant", class: "btn btn-block btn-outline-secondary" %>
+<% end %>

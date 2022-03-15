@@ -24,7 +24,12 @@ class CoffeeChatsController < ApplicationController
     @coffee_chat = CoffeeChat.new(coffee_chat_params)
 
     if @coffee_chat.save
-      redirect_to @coffee_chat, notice: 'Coffee chat was successfully created.'
+      message = 'CoffeeChat was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @coffee_chat, notice: message
+      end
     else
       render :new
     end

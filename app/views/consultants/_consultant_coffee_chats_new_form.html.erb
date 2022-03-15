@@ -1,0 +1,52 @@
+<!-- Form coffee_chat start -->
+<%= form_with(model: @coffee_chat, local: true) do |f| %>
+<!-- Form coffee_chat end -->
+
+  <!-- Label and input for location start -->
+  <div class="form-group">
+    <%= f.label :location %>
+
+    <!-- Input for location start -->
+    <%= f.text_field :location, class: "form-control" %>
+    <!-- Input for location end -->
+  </div>
+  <!-- Label and input for location end -->
+
+  <!-- Label and input for consultant_id start -->
+  <!-- Input for consultant_id start -->
+  <%= f.hidden_field :consultant_id, value: @consultant.id %>
+  <!-- Input for consultant_id end -->
+  <!-- Label and input for consultant_id end -->
+
+  <!-- Label and input for time start -->
+  <div class="form-group">
+    <%= f.label :time %>
+
+    <!-- Input for time start -->
+    <%= f.text_field :time, class: "form-control" %>
+    <!-- Input for time end -->
+  </div>
+  <!-- Label and input for time end -->
+
+  <!-- Label and input for followup_email start -->
+  <div class="form-group">
+    <%= f.label :followup_email %>
+
+    <!-- Input for followup_email start -->
+    <%= f.text_field :followup_email, class: "form-control" %>
+    <!-- Input for followup_email end -->
+  </div>
+  <!-- Label and input for followup_email end -->
+
+  <!-- Label and input for goal_of_the_chat start -->
+  <div class="form-group">
+    <%= f.label :goal_of_the_chat %>
+
+    <!-- Input for goal_of_the_chat start -->
+    <%= f.text_field :goal_of_the_chat, class: "form-control" %>
+    <!-- Input for goal_of_the_chat end -->
+  </div>
+  <!-- Label and input for goal_of_the_chat end -->
+
+  <%= f.submit "Create coffee chat", class: "btn btn-block btn-outline-secondary" %>
+<% end %>

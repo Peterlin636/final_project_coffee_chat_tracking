@@ -8,6 +8,7 @@ class ConsultantsController < ApplicationController
 
   # GET /consultants/1
   def show
+    @coffee_chat = CoffeeChat.new
   end
 
   # GET /consultants/new
@@ -24,7 +25,12 @@ class ConsultantsController < ApplicationController
     @consultant = Consultant.new(consultant_params)
 
     if @consultant.save
-      redirect_to @consultant, notice: 'Consultant was successfully created.'
+      message = 'Consultant was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @consultant, notice: message
+      end
     else
       render :new
     end
