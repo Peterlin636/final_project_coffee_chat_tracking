@@ -3,7 +3,8 @@ class ConsultantsController < ApplicationController
 
   # GET /consultants
   def index
-    @consultants = Consultant.page(params[:page]).per(10)
+    @q = Consultant.ransack(params[:q])
+    @consultants = @q.result(:distinct => true).includes(:coffee_chats, :company).page(params[:page]).per(10)
   end
 
   # GET /consultants/1

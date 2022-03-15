@@ -3,7 +3,8 @@ class CompaniesController < ApplicationController
 
   # GET /companies
   def index
-    @companies = Company.page(params[:page]).per(10)
+    @q = Company.ransack(params[:q])
+    @companies = @q.result(:distinct => true).includes(:consultants).page(params[:page]).per(10)
   end
 
   # GET /companies/1
