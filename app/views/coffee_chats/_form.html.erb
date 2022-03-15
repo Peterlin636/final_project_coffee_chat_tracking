@@ -42,7 +42,7 @@
 
     <%= f.label :consultant_id %>
     <!-- Input for consultant_id start -->
-    <%= f.number_field :consultant_id, class: consultant_class, placeholder: "Enter consultant" %>
+    <%= f.collection_select :consultant_id, Consultant.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for consultant_id end -->
     <% if consultant_was_invalid %>
       <% coffee_chat.errors.full_messages_for(:consultant).each do |message| %>
