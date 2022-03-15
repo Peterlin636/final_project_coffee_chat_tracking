@@ -6,14 +6,10 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Industry</dt>
-      <!-- Display industry start -->
       <dd><%= company.industry %></dd>
-      <!-- Display industry end -->
 
       <dt>Website</dt>
-      <!-- Display website start -->
       <dd><%= company.website %></dd>
-      <!-- Display website end -->
 
     </dl>
 
@@ -22,21 +18,17 @@
         <%= link_to_show_or_back company, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link company start -->
       <div class="col">
         <%= link_to edit_company_url(company), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link company end -->
 
-      <!-- Delete link company start -->
       <div class="col">
         <%= link_to company, method: :delete, data: { confirm: "Do you really want to delete this company?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link company end -->
     </div>
   </div>
 

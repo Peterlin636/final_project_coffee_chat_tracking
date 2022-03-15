@@ -10,24 +10,18 @@
   <ul class="list-group list-group-flush">
     <% @consultant.coffee_chats.each do |coffee_chat| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <!-- Show link start -->
         <%= link_to coffee_chat, coffee_chat %>
-        <!-- Show link end -->
 
-        <!-- Delete link start -->
         <%= link_to coffee_chat, method: :delete, data: { confirm: "Do you really want to delete this coffee_chat" } do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
-        <!-- Delete link end -->
 
       </li>
     <% end %>
 
     <div class="card-footer">
       <div class="collapse" id="consultant_coffee_chats_new_form">
-        <!-- New associationcollection form start -->
         <%= render partial: "consultants/consultant_coffee_chats_new_form" %>
-        <!-- New associationcollection form end -->
       </div>
     </div>
 

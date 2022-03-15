@@ -6,33 +6,23 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Location</dt>
-      <!-- Display location start -->
       <dd><%= coffee_chat.location %></dd>
-      <!-- Display location end -->
 
       <dt>Consultant</dt>
-      <!-- Display consultant_id start -->
       <dd>
         <% if @coffee_chat.consultant.present? %>
           <%= link_to coffee_chat.consultant, coffee_chat.consultant %>
         <% end %>
       </dd>
-      <!-- Display consultant_id end -->
 
       <dt>Time</dt>
-      <!-- Display time start -->
       <dd><%= coffee_chat.time %></dd>
-      <!-- Display time end -->
 
       <dt>Followup email</dt>
-      <!-- Display followup_email start -->
       <dd><%= coffee_chat.followup_email %></dd>
-      <!-- Display followup_email end -->
 
       <dt>Goal of the chat</dt>
-      <!-- Display goal_of_the_chat start -->
       <dd><%= coffee_chat.goal_of_the_chat %></dd>
-      <!-- Display goal_of_the_chat end -->
 
     </dl>
 
@@ -41,21 +31,17 @@
         <%= link_to_show_or_back coffee_chat, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link coffee_chat start -->
       <div class="col">
         <%= link_to edit_coffee_chat_url(coffee_chat), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link coffee_chat end -->
 
-      <!-- Delete link coffee_chat start -->
       <div class="col">
         <%= link_to coffee_chat, method: :delete, data: { confirm: "Do you really want to delete this coffee_chat?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link coffee_chat end -->
     </div>
   </div>
 
