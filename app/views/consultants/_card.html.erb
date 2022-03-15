@@ -1,0 +1,56 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Consultant #<%= consultant.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Company</dt>
+      <!-- Display company_id start -->
+      <dd><%= consultant.company_id %></dd>
+      <!-- Display company_id end -->
+
+      <dt>Title</dt>
+      <!-- Display title start -->
+      <dd><%= consultant.title %></dd>
+      <!-- Display title end -->
+
+      <dt>Office</dt>
+      <!-- Display office start -->
+      <dd><%= consultant.office %></dd>
+      <!-- Display office end -->
+
+      <dt>Phone number</dt>
+      <!-- Display phone_number start -->
+      <dd><%= consultant.phone_number %></dd>
+      <!-- Display phone_number end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back consultant, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link consultant start -->
+      <div class="col">
+        <%= link_to edit_consultant_url(consultant), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link consultant end -->
+
+      <!-- Delete link consultant start -->
+      <div class="col">
+        <%= link_to consultant, method: :delete, data: { confirm: "Do you really want to delete this consultant?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link consultant end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(consultant.updated_at) %> ago
+  </div>
+</div>

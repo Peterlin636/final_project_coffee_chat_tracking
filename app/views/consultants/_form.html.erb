@@ -1,0 +1,109 @@
+<% was_validated = consultant.errors.any? %>
+
+<%= form_with(model: consultant, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for company_id start -->
+  <div class="form-group">
+    <% company_class = "form-control" %>
+    <% company_was_invalid = consultant.errors.include?(:company) %>
+
+    <% if was_validated %>
+      <% if company_was_invalid %>
+        <% company_class << " is-invalid" %>
+      <% else %>
+        <% company_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :company_id %>
+    <!-- Input for company_id start -->
+    <%= f.number_field :company_id, class: company_class, placeholder: "Enter company" %>
+    <!-- Input for company_id end -->
+    <% if company_was_invalid %>
+      <% consultant.errors.full_messages_for(:company).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for company_id end -->
+  <!-- Label and input for title start -->
+  <div class="form-group">
+    <% title_class = "form-control" %>
+    <% title_was_invalid = consultant.errors.include?(:title) %>
+
+    <% if was_validated %>
+      <% if title_was_invalid %>
+        <% title_class << " is-invalid" %>
+      <% else %>
+        <% title_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :title %>
+    <!-- Input for title start -->
+    <%= f.text_field :title, class: title_class, placeholder: "Enter title" %>
+    <!-- Input for title end -->
+    <% if title_was_invalid %>
+      <% consultant.errors.full_messages_for(:title).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for title end -->
+  <!-- Label and input for office start -->
+  <div class="form-group">
+    <% office_class = "form-control" %>
+    <% office_was_invalid = consultant.errors.include?(:office) %>
+
+    <% if was_validated %>
+      <% if office_was_invalid %>
+        <% office_class << " is-invalid" %>
+      <% else %>
+        <% office_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :office %>
+    <!-- Input for office start -->
+    <%= f.text_field :office, class: office_class, placeholder: "Enter office" %>
+    <!-- Input for office end -->
+    <% if office_was_invalid %>
+      <% consultant.errors.full_messages_for(:office).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for office end -->
+  <!-- Label and input for phone_number start -->
+  <div class="form-group">
+    <% phone_number_class = "form-control" %>
+    <% phone_number_was_invalid = consultant.errors.include?(:phone_number) %>
+
+    <% if was_validated %>
+      <% if phone_number_was_invalid %>
+        <% phone_number_class << " is-invalid" %>
+      <% else %>
+        <% phone_number_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :phone_number %>
+    <!-- Input for phone_number start -->
+    <%= f.text_field :phone_number, class: phone_number_class, placeholder: "Enter phone number" %>
+    <!-- Input for phone_number end -->
+    <% if phone_number_was_invalid %>
+      <% consultant.errors.full_messages_for(:phone_number).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for phone_number end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>
