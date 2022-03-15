@@ -1,6 +1,6 @@
 ActiveAdmin.register CoffeeChat do
-  permit_params :location, :consultant_id, :time, :followup_email,
-                :goal_of_the_chat
+  permit_params :consultant_id, :time, :followup_email, :goal_of_the_chat,
+                :location
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

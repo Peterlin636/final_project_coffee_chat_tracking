@@ -54,7 +54,7 @@ class CoffeeChatsController < ApplicationController
   end
 
   def coffee_chat_params
-    params.require(:coffee_chat).permit(:location, :consultant_id, :time,
-                                        :followup_email, :goal_of_the_chat)
+    params.require(:coffee_chat).permit(:consultant_id, :time,
+                                        :followup_email, :goal_of_the_chat, :location)
   end
 end
