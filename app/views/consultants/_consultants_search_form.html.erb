@@ -7,6 +7,11 @@
   </div>
 
   <div class="form-group">
+    <%= f.label :email_cont, "Email contains" %>
+    <%= f.text_field :email_cont, :class => "form-control", :placeholder => "Email contains" %>
+  </div>
+
+  <div class="form-group">
     <%= f.label :office_cont, "Office contains" %>
     <%= f.text_field :office_cont, :class => "form-control", :placeholder => "Office contains" %>
   </div>
@@ -14,6 +19,11 @@
   <div class="form-group">
     <%= f.label :title_cont, "Title contains" %>
     <%= f.text_field :title_cont, :class => "form-control", :placeholder => "Title contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :name_cont, "Name contains" %>
+    <%= f.text_field :name_cont, :class => "form-control", :placeholder => "Name contains" %>
   </div>
 
   <div class="form-group">
@@ -58,14 +68,84 @@
 
 
   <div class="form-group">
-    <%= f.label :coffee_chats_location_cont, "Coffee chats location contains" %>
-    <%= f.text_field :coffee_chats_location_cont, :class => "form-control", :placeholder => "Coffee chats location contains" %>
+    <%= f.label :created_at, "CoffeeChat Created at" %>
+    <div class="row">
+      <div class='col-md-6 mb-1'>
+        <div class='input-group date' id='coffee_chatsgteqcreated_atPicker' data-target-input="nearest">
+          <%= f.text_field :coffee_chats_created_at_gteq, :class => "form-control datetimepicker-input", :placeholder => "CoffeeChat Created at greater than or equal to", :data => {:target => '#coffee_chatsgteqcreated_atPicker'} %>
+          <div class="input-group-append" data-target='#coffee_chatsgteqcreated_atPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+
+      <div class='col-md-6'>
+        <div class='input-group date' id='coffee_chatslteqcreated_atPicker' data-target-input="nearest">
+          <%= f.text_field :coffee_chats_created_at_lteq, :class => "form-control datetimepicker-input", :placeholder => "CoffeeChat Created at less than or equal to", :data => {:target => '#coffee_chatslteqcreated_atPicker'} %>
+          <div class="input-group-append" data-target='#coffee_chatslteqcreated_atPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+  <script type="text/javascript">
+      $(function () {
+          $('#coffee_chatsgteqcreated_atPicker').datetimepicker({
+              format: 'YYYY-MM-DD hh:mm:SS'
+          });
+          $('#coffee_chatslteqcreated_atPicker').datetimepicker({
+              useCurrent: false,
+              format: 'YYYY-MM-DD hh:mm:SS'
+          });
+          $('#coffee_chatsgteqcreated_atPicker').on("dp.change", function (e) {
+              $('#coffee_chatslteqcreated_atPicker').data("DateTimePicker").minDate(e.date);
+          });
+          $('#coffee_chatslteqcreated_atPicker').on("dp.change", function (e) {
+              $('#coffee_chatsgteqcreated_atPicker').data("DateTimePicker").maxDate(e.date);
+          });
+      });
+  </script>
 
   <div class="form-group">
-    <%= f.label :company_industry_cont, "Company industry contains" %>
-    <%= f.text_field :company_industry_cont, :class => "form-control", :placeholder => "Company industry contains" %>
+    <%= f.label :created_at, "Company Created at" %>
+    <div class="row">
+      <div class='col-md-6 mb-1'>
+        <div class='input-group date' id='companygteqcreated_atPicker' data-target-input="nearest">
+          <%= f.text_field :company_created_at_gteq, :class => "form-control datetimepicker-input", :placeholder => "Company Created at greater than or equal to", :data => {:target => '#companygteqcreated_atPicker'} %>
+          <div class="input-group-append" data-target='#companygteqcreated_atPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+
+      <div class='col-md-6'>
+        <div class='input-group date' id='companylteqcreated_atPicker' data-target-input="nearest">
+          <%= f.text_field :company_created_at_lteq, :class => "form-control datetimepicker-input", :placeholder => "Company Created at less than or equal to", :data => {:target => '#companylteqcreated_atPicker'} %>
+          <div class="input-group-append" data-target='#companylteqcreated_atPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+  <script type="text/javascript">
+      $(function () {
+          $('#companygteqcreated_atPicker').datetimepicker({
+              format: 'YYYY-MM-DD hh:mm:SS'
+          });
+          $('#companylteqcreated_atPicker').datetimepicker({
+              useCurrent: false,
+              format: 'YYYY-MM-DD hh:mm:SS'
+          });
+          $('#companygteqcreated_atPicker').on("dp.change", function (e) {
+              $('#companylteqcreated_atPicker').data("DateTimePicker").minDate(e.date);
+          });
+          $('#companylteqcreated_atPicker').on("dp.change", function (e) {
+              $('#companygteqcreated_atPicker').data("DateTimePicker").maxDate(e.date);
+          });
+      });
+  </script>
 
 
   <%= f.submit :class => "btn btn-primary btn-block mb-1" %>

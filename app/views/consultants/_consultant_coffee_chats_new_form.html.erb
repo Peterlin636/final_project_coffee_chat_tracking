@@ -1,11 +1,5 @@
 <%= form_with(model: @coffee_chat, local: true) do |f| %>
 
-  <div class="form-group">
-    <%= f.label :location %>
-
-    <%= f.text_field :location, class: "form-control" %>
-  </div>
-
   <%= f.hidden_field :consultant_id, value: @consultant.id %>
 
   <div class="form-group">
@@ -24,6 +18,12 @@
     <%= f.label :goal_of_the_chat %>
 
     <%= f.text_field :goal_of_the_chat, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :location %>
+
+    <%= f.text_field :location, class: "form-control" %>
   </div>
 
   <%= f.submit "Create coffee chat", class: "btn btn-block btn-outline-secondary" %>

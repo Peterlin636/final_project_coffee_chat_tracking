@@ -57,7 +57,7 @@ class ConsultantsController < ApplicationController
   end
 
   def consultant_params
-    params.require(:consultant).permit(:company_id, :title, :office,
-                                       :phone_number)
+    params.require(:consultant).permit(:company_id, :name, :title, :office,
+                                       :email, :phone_number)
   end
 end
