@@ -10,6 +10,6 @@ class CoffeeChat < ApplicationRecord
   # Scopes
 
   def to_s
-    location
+    created_at
   end
 end

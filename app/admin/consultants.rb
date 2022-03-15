@@ -1,5 +1,5 @@
 ActiveAdmin.register Consultant do
-  permit_params :company_id, :title, :office, :phone_number
+  permit_params :company_id, :name, :title, :office, :email, :phone_number
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

@@ -2,6 +2,28 @@
 
 <%= form_with(model: company, local: true, novalidate: true, class: "mb-3") do |f| %>
   <div class="form-group">
+    <% company_name_class = "form-control" %>
+    <% company_name_was_invalid = company.errors.include?(:company_name) %>
+
+    <% if was_validated %>
+      <% if company_name_was_invalid %>
+        <% company_name_class << " is-invalid" %>
+      <% else %>
+        <% company_name_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :company_name %>
+    <%= f.text_field :company_name, class: company_name_class, placeholder: "Enter company name" %>
+    <% if company_name_was_invalid %>
+      <% company.errors.full_messages_for(:company_name).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="form-group">
     <% industry_class = "form-control" %>
     <% industry_was_invalid = company.errors.include?(:industry) %>
 

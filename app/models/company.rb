@@ -11,6 +11,6 @@ class Company < ApplicationRecord
   # Scopes
 
   def to_s
-    industry
+    created_at
   end
 end

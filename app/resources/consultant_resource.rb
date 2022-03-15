@@ -3,8 +3,10 @@ class ConsultantResource < ApplicationResource
   attribute :created_at, :datetime, writable: false
   attribute :updated_at, :datetime, writable: false
   attribute :company_id, :integer
+  attribute :name, :string
   attribute :title, :string
   attribute :office, :string
+  attribute :email, :string
   attribute :phone_number, :string
 
   # Direct associations

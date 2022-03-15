@@ -2,13 +2,18 @@
   <p class="lead">Narrow results:</p>
 
   <div class="form-group">
+    <%= f.label :website_cont, "Website contains" %>
+    <%= f.text_field :website_cont, :class => "form-control", :placeholder => "Website contains" %>
+  </div>
+
+  <div class="form-group">
     <%= f.label :industry_cont, "Industry contains" %>
     <%= f.text_field :industry_cont, :class => "form-control", :placeholder => "Industry contains" %>
   </div>
 
   <div class="form-group">
-    <%= f.label :website_cont, "Website contains" %>
-    <%= f.text_field :website_cont, :class => "form-control", :placeholder => "Website contains" %>
+    <%= f.label :company_name_cont, "Company name contains" %>
+    <%= f.text_field :company_name_cont, :class => "form-control", :placeholder => "Company name contains" %>
   </div>
 
   <div class="form-group">
