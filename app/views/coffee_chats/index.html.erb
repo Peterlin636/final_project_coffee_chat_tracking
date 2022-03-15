@@ -34,6 +34,10 @@
       <div class="list-group list-group-flush">
         <%= render collection: @coffee_chats, partial: "list_item", as: :coffee_chat %>
       </div>
+      <div class="card-footer d-flex justify-content-center">
+        <%= paginate @coffee_chats, theme: 'twitter-bootstrap-4' %>
+      </div>
+
     </div>
   </div>
 </div>

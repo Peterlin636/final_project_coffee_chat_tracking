@@ -3,7 +3,7 @@ class CoffeeChatsController < ApplicationController
 
   # GET /coffee_chats
   def index
-    @coffee_chats = CoffeeChat.all
+    @coffee_chats = CoffeeChat.page(params[:page]).per(10)
   end
 
   # GET /coffee_chats/1
