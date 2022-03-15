@@ -2,7 +2,7 @@ class Company < ApplicationRecord
   # Direct associations
 
   has_many   :consultants,
-             :dependent => :destroy
+             dependent: :destroy
 
   # Indirect associations
 
@@ -13,5 +13,4 @@ class Company < ApplicationRecord
   def to_s
     industry
   end
-
 end

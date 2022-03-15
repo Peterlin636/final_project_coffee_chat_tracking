@@ -14,5 +14,4 @@ class ConsultantResource < ApplicationResource
   has_many   :coffee_chats
 
   # Indirect associations
-
 end

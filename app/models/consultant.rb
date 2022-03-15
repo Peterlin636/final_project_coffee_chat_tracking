@@ -4,7 +4,7 @@ class Consultant < ApplicationRecord
   belongs_to :company
 
   has_many   :coffee_chats,
-             :dependent => :destroy
+             dependent: :destroy
 
   # Indirect associations
 
@@ -15,5 +15,4 @@ class Consultant < ApplicationRecord
   def to_s
     company.to_s
   end
-
 end

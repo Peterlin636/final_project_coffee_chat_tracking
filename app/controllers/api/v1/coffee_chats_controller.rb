@@ -13,7 +13,7 @@ class Api::V1::CoffeeChatsController < Api::V1::GraphitiController
     coffee_chat = CoffeeChatResource.build(params)
 
     if coffee_chat.save
-      render jsonapi: coffee_chat, status: 201
+      render jsonapi: coffee_chat, status: :created
     else
       render jsonapi_errors: coffee_chat
     end
@@ -33,7 +33,7 @@ class Api::V1::CoffeeChatsController < Api::V1::GraphitiController
     coffee_chat = CoffeeChatResource.find(params)
 
     if coffee_chat.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: coffee_chat
     end

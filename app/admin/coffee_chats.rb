@@ -1,6 +1,6 @@
 ActiveAdmin.register CoffeeChat do
-
- permit_params :location, :consultant_id, :time, :followup_email, :goal_of_the_chat
+  permit_params :location, :consultant_id, :time, :followup_email,
+                :goal_of_the_chat
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
@@ -14,5 +14,4 @@ ActiveAdmin.register CoffeeChat do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
 end

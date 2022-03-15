@@ -12,5 +12,4 @@ class CoffeeChat < ApplicationRecord
   def to_s
     location
   end
-
 end

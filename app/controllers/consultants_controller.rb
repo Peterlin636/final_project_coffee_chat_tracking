@@ -1,10 +1,11 @@
 class ConsultantsController < ApplicationController
-  before_action :set_consultant, only: [:show, :edit, :update, :destroy]
+  before_action :set_consultant, only: %i[show edit update destroy]
 
   # GET /consultants
   def index
     @q = Consultant.ransack(params[:q])
-    @consultants = @q.result(:distinct => true).includes(:coffee_chats, :company).page(params[:page]).per(10)
+    @consultants = @q.result(distinct: true).includes(:coffee_chats,
+                                                      :company).page(params[:page]).per(10)
   end
 
   # GET /consultants/1
@@ -18,17 +19,16 @@ class ConsultantsController < ApplicationController
   end
 
   # GET /consultants/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /consultants
   def create
     @consultant = Consultant.new(consultant_params)
 
     if @consultant.save
-      message = 'Consultant was successfully created.'
-      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
-        redirect_back fallback_location: request.referrer, notice: message
+      message = "Consultant was successfully created."
+      if Rails.application.routes.recognize_path(request.referer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referer, notice: message
       else
         redirect_to @consultant, notice: message
       end
@@ -40,7 +40,7 @@ class ConsultantsController < ApplicationController
   # PATCH/PUT /consultants/1
   def update
     if @consultant.update(consultant_params)
-      redirect_to @consultant, notice: 'Consultant was successfully updated.'
+      redirect_to @consultant, notice: "Consultant was successfully updated."
     else
       render :edit
     end
@@ -50,22 +50,23 @@ class ConsultantsController < ApplicationController
   def destroy
     @consultant.destroy
     message = "Consultant was successfully deleted."
-    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
-      redirect_back fallback_location: request.referrer, notice: message
+    if Rails.application.routes.recognize_path(request.referer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referer, notice: message
     else
       redirect_to consultants_url, notice: message
     end
   end
 
-
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_consultant
-      @consultant = Consultant.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def consultant_params
-      params.require(:consultant).permit(:company_id, :title, :office, :phone_number)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_consultant
+    @consultant = Consultant.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def consultant_params
+    params.require(:consultant).permit(:company_id, :title, :office,
+                                       :phone_number)
+  end
 end

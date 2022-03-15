@@ -13,7 +13,7 @@ class Api::V1::ConsultantsController < Api::V1::GraphitiController
     consultant = ConsultantResource.build(params)
 
     if consultant.save
-      render jsonapi: consultant, status: 201
+      render jsonapi: consultant, status: :created
     else
       render jsonapi_errors: consultant
     end
@@ -33,7 +33,7 @@ class Api::V1::ConsultantsController < Api::V1::GraphitiController
     consultant = ConsultantResource.find(params)
 
     if consultant.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: consultant
     end
