@@ -12,7 +12,11 @@
 
       <dt>Consultant</dt>
       <!-- Display consultant_id start -->
-      <dd><%= coffee_chat.consultant_id %></dd>
+      <dd>
+        <% if @coffee_chat.consultant.present? %>
+          <%= link_to coffee_chat.consultant, coffee_chat.consultant %>
+        <% end %>
+      </dd>
       <!-- Display consultant_id end -->
 
       <dt>Time</dt>
