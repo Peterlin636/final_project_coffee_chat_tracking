@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  ActiveAdmin.routes(self)
   root :to => "consultants#index"
   resources :coffee_chats
   resources :companies
