@@ -7,6 +7,8 @@ class CompanyResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :consultants
+
   # Indirect associations
 
 end

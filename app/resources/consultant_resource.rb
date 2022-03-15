@@ -9,6 +9,8 @@ class ConsultantResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :company
+
   has_many   :coffee_chats
 
   # Indirect associations
